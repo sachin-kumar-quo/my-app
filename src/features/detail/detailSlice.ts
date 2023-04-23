@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "../../app/store";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
 import { fetchNews } from "./detailAPI";
 
 export interface DetailState {
@@ -39,7 +39,6 @@ export const detailSlice = createSlice({
   },
 });
 
-// export const { increment, decrement, incrementByAmount } = detailSlice.actions;
-export const selectCount = (state: RootState) => state.counter.value;
+export const detailState = (state: RootState) => state.detail;
 
 export default detailSlice.reducer;
