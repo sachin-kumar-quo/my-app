@@ -3,7 +3,7 @@ import { RootState } from "../../app/store";
 import { fetchNews } from "./detailAPI";
 
 export interface DetailState {
-  newsDetail: {};
+  newsDetail: any;
   status: "idle" | "loading" | "failed";
 }
 
@@ -14,9 +14,9 @@ const initialState: DetailState = {
 
 export const getNews = createAsyncThunk(
   "detail/fetchNews",
-  async (id: string) => {
+  async (id: string | undefined) => {
     const response = await fetchNews(id);
-    return response.data;
+    return response;
   }
 );
 

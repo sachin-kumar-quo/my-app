@@ -1,0 +1,33 @@
+$ruler: 16px;
+$color-red: #AE1100;
+$color-bg: #EBECF0;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+.cards-container{
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}
+.page-input{
+  width:100px;
+  margin:0 !important;
+}
+.footer{
+  display: flex;
+  justify-content:center;
+  width:19%;
+  align-self: center;
+}
+
+.home-container{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.arrow{
+  margin:16px !important;
+}

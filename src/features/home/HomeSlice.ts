@@ -6,6 +6,7 @@ export interface HomeState {
   news: [];
   page: number;
   query: string;
+  totalPages: number;
   status: "idle" | "loading" | "failed";
 }
 
@@ -13,13 +14,15 @@ const initialState: HomeState = {
   news: [],
   page: 0,
   query: "",
+  totalPages: 0,
   status: "idle",
 };
 
 export const getSearchResults = createAsyncThunk(
   "home/fetchSearchResults",
-  async (text: string = "") => {
-    const response = await fetchSearchResults(text);
+  async (args: any) => {
+    const { text = "", page = 0 } = args;
+    const response = await fetchSearchResults(text, page);
     return response;
   }
 );
@@ -38,6 +41,7 @@ export const homeSlice = createSlice({
         state.news = action.payload.hits;
         state.page = action.payload.page;
         state.query = action.payload.query;
+        state.totalPages = action.payload.nbPages;
       })
       .addCase(getSearchResults.rejected, (state) => {
         state.status = "failed";

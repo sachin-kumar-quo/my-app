@@ -5,7 +5,7 @@ const SearchHeader = ({ searchResults = (t: string) => {} }) => {
   const [text, setText] = useState("");
   const onSubmit = (e: any) => {
     e.preventDefault();
-    console.log(text);
+    searchResults(text);
   };
   return (
     <form className="header-container" onSubmit={(e) => onSubmit(e)}>
