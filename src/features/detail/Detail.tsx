@@ -6,6 +6,7 @@ import "./Detail.scss";
 import Comments from "../../components/comments/Comments";
 import BackArrow from "../../assets/images/arrowb.png";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../components/spinner/Spinner";
 
 const Detail = () => {
   const detail = useAppSelector(detailState);
@@ -33,10 +34,8 @@ const Detail = () => {
           </div>
         </>
       ) : (
-        <>{detail.status}</>
+        <Spinner />
       )}
-      {/* {JSON.stringify(detail.newsDetail?.children)}
-      {detail.status} */}
     </div>
   );
 };
